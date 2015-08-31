@@ -1,0 +1,42 @@
+<div class="row bs-header-text ">
+  <span class="col-md-12 col-sm-12 col-xs-12 text-center">Bar Stock</span>
+</div>
+
+<div class="row">
+  <div class="col-md-3 col-sm-6 col-xs-12 bs-stocks" ng-repeat="filterItems in filteredItemGroups">
+    <div class="row bs-stock-item" ng-repeat="stockItem in filterItems" ng-class="{'bs-stock-item-bordered': !$last}">
+      <span class="col-md-8 col-sm-8 col-xs-8">{{stockItem.name}}</span>
+      <span class="col-md-4 col-sm-4 col-xs-4 pull-right">
+                <span class="bs-quantity stock-available-qty">{{getQtyAvailable(stockItem)}}</span>
+      <span class="bs-measure"> {{stockItem.measure}}</span>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="row bs-header-text ">
+  <span class="col-md-12 col-sm-12 col-xs-12 text-center">Orders</span>
+</div>
+<div>
+  <div class="bs-order" ng-repeat="drink in drinks">
+    <div class="bs-order-title">{{drink.name}}</div>
+    <div class="bs-order-details">
+      <div class="bs-order-ingredients-container">
+        <div ng-repeat="ingredient in drink.ingredients">
+          <span class="bs-order-ingredient-item">
+                        <span class="bs-order-ingredient-quantity">{{ingredient.qty}}<span class="bs-order-ingredient-measure" ng-class="{'bs-order-ingredient-measure-blank': !ingredient.measure}"> {{ingredient.measure}}</span></span>
+          <span class="bs-order-ingredient-name">{{getIngredient(ingredient.stockId)}}</span>
+          </span>
+        </div>
+      </div>
+      <div class="bs-drink-count-container ">
+        <a class="bs-order-button" ng-class="{disabled: drink.unavailable}" ng-click="increaseDrinkCount($index, drink)"><i class="fa fa-plus fa-3x bs-order-button-plus" ></i></a>
+        <span class="bs-drink-count" ng-bind="drinksOrdered[$index].quantity || '-'"></span>
+        <a class="bs-order-button" ng-class="{disabled: drinksOrdered[$index].quantity === 0}" ng-click="decreaseDrinkCount($index, drink)"><i class="fa fa-minus fa-3x bs-order-button-minus"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <a class="col-md-4 col-md-offset-4 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1 btn bs-order-place-order-button" href="#/summary">Place Order</a>
+</div>

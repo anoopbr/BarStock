@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="barstock">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Bar Stock</title>
+  <!-- Google Font Link -->
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,200,700' rel='stylesheet' type='text/css'>
+  <!-- Font Awesome Link for icons -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <!-- Bootstrap css -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <!-- Application CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <section class="container" ng-view>
+  </section>
+
+  <!-- Latest compiled and minified JavaScript libraries-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://code.angularjs.org/1.4.4/angular.min.js"></script>
+  <script src="https://code.angularjs.org/1.4.4/angular-resource.min.js"></script>
+  <script src="https://code.angularjs.org/1.4.4/angular-route.min.js"></script>
+
+  <script src="app.js"></script>
+  <script src="../order/home-ctrl.js"></script>
+  <script src="../summary/summary-ctrl.js"></script>
+  <script src="drinks-service.js"></script>
+  <script src="unit-conversion-service.js"></script>
+</body>
+
+</html>
